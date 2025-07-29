@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access Restricted - Animated</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        overflow: hidden;
+      }
+
+      /* Background Animation */
+      .bg-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .bg-animation span {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 107, 107, 0.3);
+        animation: animate 20s ease-in-out infinite;
+        bottom: -150px;
+        will-change: transform, opacity; /* Optimize for smoother animations */
+      }
+
+      .bg-animation span:nth-child(1) {
+        left: 25%;
+        width: 80px;
+        height: 80px;
+        animation-delay: 0s;
+      }
+      .bg-animation span:nth-child(2) {
+        left: 10%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 1.5s;
+        animation-duration: 15s;
+      }
+      .bg-animation span:nth-child(3) {
+        left: 70%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 3s;
+      }
+      .bg-animation span:nth-child(4) {
+        left: 40%;
+        width: 60px;
+        height: 60px;
+        animation-delay: 0.5s;
+        animation-duration: 22s;
+      }
+      .bg-animation span:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 1s;
+      }
+      .bg-animation span:nth-child(6) {
+        left: 75%;
+        width: 110px;
+        height: 110px;
+        animation-delay: 2.5s;
+      }
+      .bg-animation span:nth-child(7) {
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 5s;
+      }
+      .bg-animation span:nth-child(8) {
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        animation-delay: 10s;
+        animation-duration: 40s;
+      }
+      .bg-animation span:nth-child(9) {
+        left: 20%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 1.8s;
+        animation-duration: 30s;
+      }
+      .bg-animation span:nth-child(10) {
+        left: 85%;
+        width: 150px;
+        height: 150px;
+        animation-delay: 0s;
+        animation-duration: 13s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.8;
+          border-radius: 10%;
+        }
+        50% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(-1200px) rotate(540deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+
+      /* Text Glow & Pulse */
+      .box {
+        display: grid;
+        place-items: center;
+        font-family: "Zen Tokyo Zoo", cursive;
+        text-align: center;
+      }
+      .box p {
+        font-size: 40px;
+        text-transform: uppercase;
+        color: #ffd9e2;
+        text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
+          0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c,
+          0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c,
+          0 0 1000px #ff003c;
+        animation: animate1 3s infinite alternate;
+      }
+      @keyframes animate1 {
+        40% {
+          opacity: 1;
+        }
+        42% {
+          opacity: 0.8;
+        }
+        43% {
+          opacity: 1;
+        }
+        45% {
+          opacity: 0.3;
+        }
+        46% {
+          opacity: 1;
+        }
+      }
+      .neon-glow {
+        font-family: "Orbitron", sans-serif;
+        color: #ff6b6b;
+        text-shadow: 0 0 5px #ff6b6b, 0 0 15px #ff6b6b, 0 0 30px #ff3b3b,
+          0 0 60px #ff0b0b;
+        animation: pulsate 2s ease-in-out infinite alternate,
+          fadeIn 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+        will-change: text-shadow, opacity, transform;
+      }
+
+      @keyframes pulsate {
+        from {
+          text-shadow: 0 0 5px #ff6b6b, 0 0 15px #ff6b6b, 0 0 30px #ff3b3b,
+            0 0 60px #ff0b0b;
+        }
+        to {
+          text-shadow: 0 0 10px #ff8f8f, 0 0 25px #ff8f8f, 0 0 50px #ff5f5f,
+            0 0 80px #ff2f2f;
+        }
+      }
+
+      /* Fade In for Content */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .content-fade-in {
+        animation: fadeIn 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        animation-delay: 0.8s;
+        opacity: 0;
+        will-change: opacity, transform;
+      }
+
+      .warning-fade-in {
+        animation: fadeIn 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+        animation-delay: 1.2s;
+        opacity: 0;
+        will-change: opacity, transform;
+      }
+
+      /* Button Animation */
+      .btn-gradient {
+        background-image: linear-gradient(to right, #ef4444, #ec4899);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: fadeIn 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+          bounceIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        animation-delay: 1.6s;
+        opacity: 0;
+        will-change: transform, opacity, box-shadow;
+      }
+      .btn-gradient:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+        background-image: linear-gradient(
+          to right,
+          #f87171,
+          #f472b6
+        ); /* Lighter gradient on hover */
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale3d(0.6, 0.6, 0.6);
+        }
+        50% {
+          transform: scale3d(1.05, 1.05, 1.05);
+        }
+        70% {
+          transform: scale3d(0.95, 0.95, 0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+
+      /* Container hover effect */
+      .animated-container {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform, box-shadow;
+      }
+      .animated-container:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        border-color: #ff6b6b;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-950 to-black h-screen flex items-center justify-center p-4"
+  >
+    <div class="bg-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div
+      class="text-center bg-gray-800 bg-opacity-70 backdrop-blur-sm p-8 md:p-12 rounded-xl shadow-2xl border border-gray-700 max-w-2xl mx-auto animated-container relative z-10"
+    >
+      <div class="box">
+        <p>Access Restricted: Payment Overdue</p>
+      </div>
+      <p
+        class="text-gray-300 text-base md:text-xl mb-6 leading-relaxed content-fade-in"
+      >
+        This website has been temporarily restricted due to
+        <strong>incomplete development payments</strong>. To restore full
+        access, the site owner must contact the developer and settle the
+        outstanding balance as soon as possible.
+      </p>
+      <p
+        class="text-red-400 text-lg md:text-xl font-medium mb-8 warning-fade-in"
+      >
+        <span class="font-bold">Warning:</span> If the payment isn't settled
+        soon, the developer will take legal action without further notice.
+      </p>
+      <a
+        href="tel:01779481759"
+        class="inline-block btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+      >
+        Contact the Developer
+      </a>
+    </div>
+  </body>
+</html>
